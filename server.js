@@ -14,7 +14,7 @@ app.use(registerRouter.routes())
     .use(itemRouter.allowedMethods());
 
 app.use(async ctx => {
-    ctx.body = 'Hello World';
+    ctx.body = '404 Not Found';
 });
 
 app.listen(3000);
