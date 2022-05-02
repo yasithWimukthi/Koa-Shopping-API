@@ -3,6 +3,7 @@ import cors from '@koa/cors';
 import bodyParser from 'koa-bodyparser';
 import registerRouter from "./router/register.router.js";
 import itemRouter from "./router/item.route.js";
+import cartRouter from "./router/cart.routes.js";
 
 const app = new Koa();
 
@@ -11,7 +12,9 @@ app.use(bodyParser());
 app.use(registerRouter.routes())
     .use(registerRouter.allowedMethods())
     .use(itemRouter.routes())
-    .use(itemRouter.allowedMethods());
+    .use(itemRouter.allowedMethods())
+    .use(cartRouter.routes())
+    .use(cartRouter.allowedMethods());
 
 app.use(async ctx => {
     ctx.body = '404 Not Found';
