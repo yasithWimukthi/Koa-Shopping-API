@@ -8,6 +8,7 @@ shopItems.set('1', {
   price: 10,
   description: 'Item 1 description',
   quantity: 10,
+  promotionPrice: 0,
 });
 
 shopItems.set('2', {
@@ -40,7 +41,15 @@ export const getShopItem = (id) => {
     return shopItems.get(id);
 };
 
-const updateShopItem = (id,shopItem) => {
+export const updateShopItem = (id,{name,quantity,description,price,promotionPrice}) => {
+    const shopItem = {
+        id,
+        name,
+        quantity,
+        description,
+        price,
+        promotionPrice
+    };
     shopItems.set(id,shopItem);
 };
 
