@@ -1,5 +1,5 @@
 import Router from "@koa/router";
-import {getShopItems, save} from "../api/item.api.js";
+import {getShopItems, save, updateShopItem} from "../api/item.api.js";
 
 const itemRouter = new Router({
     prefix: "/items",
@@ -12,10 +12,21 @@ itemRouter.post('/', async (ctx, next) => {
         ctx.set('Content-Type', 'application/json');
         ctx.status = 201;})
 
+
 itemRouter.get('/get-all', async (ctx, next) => {
         const items = getShopItems();
         ctx.body = items;
         ctx.set('Content-Type', 'application/json');
         ctx.status = 200;})
+
+itemRouter.put('/edit/:id', async (ctx, next) => {
+        const id = ctx.params.id;
+        const data = ctx.request.body;
+        const item = updateShopItem(id,data);
+        ctx.body = getShopItems();
+        ctx.set('Content-Type', 'application/json');
+        ctx.status = 201;})
+
+
 
 export default itemRouter;
