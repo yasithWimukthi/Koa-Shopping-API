@@ -11,9 +11,9 @@ app.use(cors());
 app.use(bodyParser());
 app.use(registerRouter.routes())
     .use(registerRouter.allowedMethods())
-    .use(itemRouter.routes())
+app.use(itemRouter.routes())
     .use(itemRouter.allowedMethods())
-    .use(cartRouter.routes())
+app.use(cartRouter.routes())
     .use(cartRouter.allowedMethods());
 
 app.use(async ctx => {
