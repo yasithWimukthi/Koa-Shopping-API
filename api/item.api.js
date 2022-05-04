@@ -53,3 +53,11 @@ export const updateShopItem = (id,{name,quantity,description,price,promotionPric
     shopItems.set(id,shopItem);
 };
 
+export const addPromotion = (id,{promotionPrice}) =>{
+    const shopItem = shopItems.get(id);
+    shopItems.set(id,{
+        ...shopItem,
+        promotionPrice
+    })
+    return promotionPrice;
+}

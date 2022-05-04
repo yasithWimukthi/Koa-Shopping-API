@@ -14,7 +14,7 @@ cartRouter.post('/', async (ctx, next) => {
     ctx.set('Content-Type', 'application/json');
     ctx.status = 201;})
 
-itemRouter.get('/get-all', async (ctx, next) => {
+itemRouter.get('/get-cart', async (ctx, next) => {
     const items = getCartItems();
     ctx.body = items;
     ctx.set('Content-Type', 'application/json');
